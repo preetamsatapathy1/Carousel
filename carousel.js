@@ -1,5 +1,5 @@
 const slidewrapper = document.querySelector('.slide_wrapper')
-let counter = 1
+var counter = 1
 const nxtBtn = document.querySelector('#next-btn')
 const prevBtn = document.querySelector('#prev-btn')
 
@@ -18,13 +18,12 @@ lastClone.id = 'last-clone'
 
 slidewrapper.append(firstClone)
 slidewrapper.prepend(lastClone)
-const slidewidth = slidewrapper.children[counter].clientWidth
+const slidewidth = slidewrapper.children[counter].getBoundingClientRect().width
 slidewrapper.style.transform = 'translateX(' + (-slidewidth * counter) + 'px)'
 
 function nextButton(){
     if(counter >= slidewrapper.children.length-1) return
     counter+=1
-    const slidewidth = slidewrapper.children[counter].clientWidth
     slidewrapper.style.transition = '0.4s ease-in'
     slidewrapper.style.transform = 'translateX(-' + slidewidth*counter + 'px)'
 }
@@ -32,7 +31,6 @@ function nextButton(){
 function prevButton(){
     if(counter <= 0) return
     counter-=1
-    const slidewidth = slidewrapper.children[counter].clientWidth
     slidewrapper.style.transition = '0.4s ease-in'
     slidewrapper.style.transform = 'translateX(-' + slidewidth*counter + 'px)'
 }
