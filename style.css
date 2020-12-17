@@ -14,13 +14,13 @@ body{
 .carousel_wrapper{
     position: relative;
     margin: auto;
-    width: 50%;
+    width: 100%;
     overflow: hidden;
 }
 
 .slide_wrapper{
     width: 100%;
-    height: 650px;
+    height: 50vh;
     display: flex;
     flex-direction: row;
 }
@@ -61,4 +61,13 @@ body{
     color: black;
     height: 14%;
 
+}
+
+@media(min-width:720px){
+    .carousel_wrapper{
+        width: 50%;
+    }
+    .slide_wrapper{
+        height: 70vh;
+    }
 }
